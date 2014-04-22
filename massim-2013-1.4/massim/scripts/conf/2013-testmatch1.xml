@@ -11,8 +11,8 @@
 	<accounts>
 		&actionclassmap;
 		
-		&teamUFSC;
 		&teamLTI-USP;
+		&teamB;
 	</accounts>
 </conf>
 
