@@ -1,0 +1,152 @@
+\documentclass{llncs}
+\usepackage{todonotes}
+\usepackage{url}
+\usepackage{hyperref}
+
+\begin{document}
+\title{Multi-Agent Programming Contest 2013\\Technical Report Template}
+\author{[Authors]}
+\institute{[Affiliation]}
+\maketitle
+
+\begin{center}
+Max number of pages: 10 (without the Short Answers) \\
+Deadline: \textbf{04/10/2013}\\
+Format: LNCS\footnote{\url{http://www.springer.com/computer/lncs?SGWID=0-164-6-793341-0}}\\
+Please submit your contribution (\textbf{PDF and TEX}) via\\ \url{https://www.easychair.org/conferences/?conf=mapc2013}
+
+(In the Menu: Proceedings).
+\end{center}
+
+\begin{abstract}
+Please follow the given template structure for your submission. For each section, we are proposing some questions that the reader of the paper should be able to answer after reading it. (Please note that the technical report format is not like the ``form'' used in the registration template. A \emph{paper} style should be used.)\\ If you encounter any problems with some of the questions please do not hesitate to request clarification on the mailing list.
+
+Additionally, if you mention the contest please do it in the following way:
+\begin{itemize}
+\item First time usage: "`Multi-Agent Programming Contest 2013 (MAPC)"' and a footnote with the url \url{http://multiagentcontest.org/2013}
+\item Afterwards: "`MAPC"' or "`Contest"'.
+\end{itemize}
+
+Finally, we would like to ask you in section~\ref{sec:strategies} to select one match from the tournament that is exemplary for the strategy of your team and  use some screenshots of the monitor as well as the statistics that were generated during the run. Of course, you do not have to use all charts but just that onces that are useful to explain your strategy. The links:
+\begin{itemize}
+\item MarsFileMonitor\footnote{\url{http://multiagentcontest.org/downloads/Multi-Agent-Programming-Contest-2013/XMLs-for-MarsFileViewer/}}
+\item Statistics:\footnote{\url{http://multiagentcontest.org/downloads/Multi-Agent-Programming-Contest-2013/Statistics/}}
+\end{itemize}
+
+Please provide also a link (on \url{http://multiagentcontest.org}) to the sources of your team.
+
+If you have any questions regarding the layout please also have a look at the Technical Report from last year.
+\newpage
+\end{abstract}
+
+
+\section{Introduction}
+
+\begin{enumerate}
+\item What was the motivation to participate in the contest?
+\item What is the (brief) history of the team? (MAS course project,
+  thesis evaluation, $\ldots$)
+\item What is the name of your team?
+\item How many developers and designers did you have? At what level of education are your team members?
+\item From which field of research do you come from? Which work is related?
+\end{enumerate}
+
+\section{System Analysis and Design}
+
+\begin{enumerate}
+ \item Did you use multi-agent programming languages? Please justify your answer.
+ \item If some multi-agent system methodology such as Prometheus,
+   O-MaSE, or Tropos was used, how did you use it? If you did not, please justify.
+ \item Is the solution based on the centralisation of
+   coordination/information on a specific agent? Conversely if you
+   plan a decentralised solution, which strategy do you plan to use?
+ \item What is the communication strategy and how complex is it?
+ \item How are the following agent features considered/implemented:
+   \emph{autonomy}, \emph{proactiveness}, \emph{reactiveness}?
+ \item Is the team a truly \textbf{multi}-agent system or rather a
+   centralised system in disguise?
+\item How much time (man hours) have you invested (approximately) for implementing your team?
+\item Did you discuss the design and strategies of you agent team with other developers? To which extend did your test your agents playing with other teams.
+\item What data structures are shared among the agents, and which are private of each agent?
+\end{enumerate}
+
+\section{Software Architecture}
+
+\begin{enumerate}
+\item Which programming language did you use to implement the
+  multi-agent system?
+\item How have you mapped the designed architecture (both multi-agent
+  and individual agent architectures) to programming codes, i.e., how
+  did you implement specific agent-oriented concepts and designed
+  artifacts using the programming language?
+\item Which development platforms and tools are used? How much time did you invest in learning those?
+\item Which runtime platforms and tools (e.g. Jade, AgentScape, simply Java, $\ldots$) are used? How much time did you invest in learning those?
+ \item What features were missing in your language choice that would have facilitated your development task?
+\item Which algorithms are used/implemented?
+\item How did you distribute the agents on several machines? And if you did not
+please justify why.
+\item Do your agents perform any reasoning tasks while waiting for responses from the server, or is the reasoning synchronized with the receive-percepts/send-action cycle?
+\item What part of the development was most difficult/complex? What
+  kind of problems have you found and how are they solved?
+\item How many lines of code did you write for your software?
+\end{enumerate}
+
+\section{Strategies, Details and Statistics}\label{sec:strategies}
+
+\begin{enumerate}
+ \item What is the main strategy of your team?
+ \item How does the overall team work together? (coordination, information
+   sharing, ...)
+\item How do your agents analyze the topology of the map? And how do they exploit their findings?
+\item How do your agents communicate with the server?
+\item How do you implement the roles of the agents? Which strategies do the different roles implement?
+\item How do you find good zones? How do you estimate the value of zones?
+\item How do you conquer zones? How do you defend zones if attacked?
+Do you attack zones?
+\item Can your agents change their behavior during runtime? If so, what triggers
+the changes?
+\item What algorithm(s) do you use for agent path planning?
+\item How do you make use of the buying-mechanism?
+\item How important are achievements for your overall strategy?
+\item Do your agents have an explicit mental state?
+\item How do your agents communicate? And what do they communicate?
+\item How do you organize your agents? Do you use e.g. hierarchies? Is your
+organization implicit or explicit?
+\item Is most of you agents' behavior emergent on and individual and team level?
+\item If you agents perform some planning, how many steps do they plan ahead.
+\item If you have a perceive-think-act cycle, how is it synchronized with the server?
+\end{enumerate}
+
+\section{Conclusion}
+\begin{enumerate}
+\item What have you learned from the participation in the contest?
+\item Which are the strong and weak points of the team?
+\item How suitable was the chosen programming language, methodology,
+  tools, and algorithms?
+\item What can be improved in the context for next year?
+\item Why did your team perform as it did? Why did the other teams perform better/worse than you did.
+\item Which other research fields might be interested in the Multi-Agent Programming Contest?
+\item How can the current scenario be optimized? How would those optimization pay off?
+\end{enumerate}
+
+\newpage
+\section*{Short Answers}
+
+Please provide short answers to all the questions in a separate section. This
+does not count for the 10 pages limit. Please use the following style for this section:
+
+\begin{verbatim}
+\newpage
+\section*{Short Answers}
+\appendix
+\section{Introduction}
+\begin{enumerate}
+\item What was the motivation to participate in the contest?
+\item[A:] Our motiviation was ...
+\item What is the (brief) history of the team?
+(MAS course project, thesis evaluation, $\ldots$)
+\item[A:] In 2006...
+\end{enumerate}
+\end{verbatim} 
+Please note: The \verb|A:| stands for "`Answer"'.
+\end{document}
