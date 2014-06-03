@@ -3,33 +3,33 @@
 notifications="no" timeout="50000" queued="yes" statisticsFile="no" statisticsShell="no"
 submitStatistic="no">
   <entities>
-    <entity name="martian1" username="LTI-USP1" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian2" username="LTI-USP2" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian3" username="LTI-USP3" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian4" username="LTI-USP4" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian5" username="LTI-USP5" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian6" username="LTI-USP6" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian7" username="LTI-USP7" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian8" username="LTI-USP8" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian9" username="LTI-USP9" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian10" username="LTI-USP10" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian11" username="LTI-USP11" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian12" username="LTI-USP12" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian13" username="LTI-USP13" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian14" username="LTI-USP14" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian15" username="LTI-USP15" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian16" username="LTI-USP16" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian17" username="LTI-USP17" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian18" username="LTI-USP18" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian19" username="LTI-USP19" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian20" username="LTI-USP20" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian21" username="LTI-USP21" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian22" username="LTI-USP22" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian23" username="LTI-USP23" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian24" username="LTI-USP24" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian25" username="LTI-USP25" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian26" username="LTI-USP26" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian27" username="LTI-USP27" password="PXct9U" iilang="no" xml="no"/>
-    <entity name="martian28" username="LTI-USP28" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian1" username="ALM1" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian2" username="ALM2" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian3" username="ALM3" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian4" username="ALM4" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian5" username="ALM5" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian6" username="ALM6" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian7" username="ALM7" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian8" username="ALM8" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian9" username="ALM9" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian10" username="ALM10" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian11" username="ALM11" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian12" username="ALM12" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian13" username="ALM13" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian14" username="ALM14" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian15" username="ALM15" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian16" username="ALM16" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian17" username="ALM17" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian18" username="ALM18" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian19" username="ALM19" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian20" username="ALM20" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian21" username="ALM21" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian22" username="ALM22" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian23" username="ALM23" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian24" username="ALM24" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian25" username="ALM25" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian26" username="ALM26" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian27" username="ALM27" password="PXct9U" iilang="no" xml="no"/>
+    <entity name="martian28" username="ALM28" password="PXct9U" iilang="no" xml="no"/>
   </entities>
 </interfaceConfig>

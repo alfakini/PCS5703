@@ -3,6 +3,7 @@
 <!ENTITY teamB SYSTEM "accounts-B.xml">
 <!ENTITY teamUFSC SYSTEM "accounts-UFSC.xml">
 <!ENTITY teamLTI-USP SYSTEM "accounts-LTI-USP.xml">
+<!ENTITY teamALM SYSTEM "accounts-ALM.xml">
 <!ENTITY teamTUB-A SYSTEM "accounts-TUB-A.xml">
 <!ENTITY teamTUB-B SYSTEM "accounts-TUB-B.xml">
 <!ENTITY teamTUB SYSTEM "accounts-TUB.xml">
@@ -37,8 +38,8 @@
 	tournamentname CDATA "Mars2013"
 	debug-level CDATA "normal"
 >
-	
-<!ATTLIST simulation 
+
+<!ATTLIST simulation
 	configurationclass CDATA "massim.competition2013.GraphSimulationConfiguration"
 	rmixmlobsserverhost CDATA "localhost"
 	rmixmlobsserverport CDATA "1099"
@@ -49,12 +50,12 @@
 	rmixmlobserverweb CDATA "massim.competition2013.GraphSimulationRMIXMLDocumentObserverWebInterface"
 	xmlobserver CDATA "massim.competition2013.GraphSimulationXMLObserver"
 	xmlobserverpath CDATA "./xmls"
-	
+
 	statisticsobserver CDATA "massim.competition2013.GraphSimulationStatisticsObserver"
 	statisticsobserverpath CDATA "./statistics"
 	rmixmlobserver CDATA "massim.competition2013.GraphSimulationRMIXMLDocumentObserver"
 >
-	
+
 <!ATTLIST configuration
 	maxNumberOfSteps CDATA "750"
 	xmlns:meta CDATA "http://www.tu-clausthal.de/"
