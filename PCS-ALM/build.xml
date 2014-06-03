@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="lti-usp-2013" basedir="." default="run">
+<project name="alm-sma" basedir="." default="run">
 	<property name="mas2j.project.file" value="lti-usp-2013.mas2j" />
 	<property name="debug" value="" /> <!-- use "-debug" to run in debug mode -->
 	<property name="build.dir" value="${basedir}/bin/classes" />
@@ -22,7 +22,7 @@
 	    </chainedmapper>
 	  </mapper>
 	</pathconvert>
-	
+
 
 	<!-- tasks the user can override in his/her c-build.xml script -->
 	<target name="user-init">
@@ -46,7 +46,7 @@
 
 	<target name="jar" depends="compile">
         <delete file="${ant.project.name}.jar" />
-        <copy file="${mas2j.project.file}" tofile="default.mas2j" />        
+        <copy file="${mas2j.project.file}" tofile="default.mas2j" />
         <jar update="yes" jarfile="${ant.project.name}.jar" >
         	<manifest>
 				<attribute name="Main-Class" value="jason.infra.centralised.RunCentralisedMAS"/>
@@ -73,7 +73,7 @@
 			<classpath refid="project.classpath" />
 			<arg line="${mas2j.project.file} ${debug} " />
 			<jvmarg line="-Xmx2000M -Xss8M" />
-			
+
 			<!--
 			<jvmarg line="-Xmx500M -Xss8M" />
 			-->

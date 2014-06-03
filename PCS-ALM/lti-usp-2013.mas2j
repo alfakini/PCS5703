@@ -3,7 +3,7 @@
 
   Based on Project for the Multi-Agent Programming Contest 2013. Original Authors: Mariana Ramos Franco
 */
-MAS lti_usp_2013 {
+MAS alm_2013 {
 
 	//infrastructure: JaCaMo
 	infrastructure: Centralised

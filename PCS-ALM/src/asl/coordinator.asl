@@ -14,16 +14,16 @@
 	<- 	!add_available_roles;
 		createWorkspace("marsWS");
   		joinWorkspace("marsWS",MarsMWsp);
-		makeArtifact("marsGroupBoard","ora4mas.nopl.GroupBoard",["lti-usp-os.xml",lti_usp_team,false,false],GrArtId);
+		makeArtifact("marsGroupBoard","ora4mas.nopl.GroupBoard",["alm-os.xml",alm,false,false],GrArtId);
 	 	setOwner(coordinator);
      	focus(GrArtId);
-     	makeArtifact("zone1GroupBoard","ora4mas.nopl.GroupBoard",["lti-usp-os.xml",best_zone_group,false,false],Zone1GrArtId);
+     	makeArtifact("zone1GroupBoard","ora4mas.nopl.GroupBoard",["alm-os.xml",best_zone_group,false,false],Zone1GrArtId);
 	 		setParentGroup(marsGroupBoard)[artifact_id(Zone1GrArtId)];
      	focus(Zone1GrArtId);
-     	makeArtifact("zone2GroupBoard","ora4mas.nopl.GroupBoard",["lti-usp-os.xml",second_best_zone_group,false,false],Zone2GrArtId);
+     	makeArtifact("zone2GroupBoard","ora4mas.nopl.GroupBoard",["alm-os.xml",second_best_zone_group,false,false],Zone2GrArtId);
 	 		setParentGroup(marsGroupBoard)[artifact_id(Zone2GrArtId)];
      	focus(Zone2GrArtId);
-     	makeArtifact("attackGroupBoard","ora4mas.nopl.GroupBoard",["lti-usp-os.xml",attack_group,false,false],AttackGrArtId);
+     	makeArtifact("attackGroupBoard","ora4mas.nopl.GroupBoard",["alm-os.xml",attack_group,false,false],AttackGrArtId);
 	 		setParentGroup(marsGroupBoard)[artifact_id(AttackGrArtId)];
      	focus(AttackGrArtId);
      	adoptRole(coordinator)[artifact_id(GrArtId)];
@@ -34,31 +34,31 @@
 
 // scheme creation
 +!run_scheme
-	<-  makeArtifact(teamSch,"ora4mas.nopl.SchemeBoard",["lti-usp-os.xml", team_sch, false, false ],SchArtId);
+	<-  makeArtifact(teamSch,"ora4mas.nopl.SchemeBoard",["alm-os.xml", team_sch, false, false ],SchArtId);
 		focus(SchArtId);
 		.print("scheme teamSch created");
-		addScheme(teamSch)[artifact_name("marsGroupBoard")]; 
+		addScheme(teamSch)[artifact_name("marsGroupBoard")];
 		//.print("scheme is linked to responsible group");
-		
-		makeArtifact(bestZoneSch,"ora4mas.nopl.SchemeBoard",["lti-usp-os.xml", occupy_zone_sch, false, false ],SchArtId1);
+
+		makeArtifact(bestZoneSch,"ora4mas.nopl.SchemeBoard",["alm-os.xml", occupy_zone_sch, false, false ],SchArtId1);
 		focus(SchArtId1);
 		.print("scheme bestZoneSch created");
-		addScheme(bestZoneSch)[artifact_name("zone1GroupBoard")]; 
+		addScheme(bestZoneSch)[artifact_name("zone1GroupBoard")];
 		//.print("scheme is linked to responsible group");
-		makeArtifact(secondBestZoneSch,"ora4mas.nopl.SchemeBoard",["lti-usp-os.xml", occupy_zone_sch, false, false ],SchArtId2);
+		makeArtifact(secondBestZoneSch,"ora4mas.nopl.SchemeBoard",["alm-os.xml", occupy_zone_sch, false, false ],SchArtId2);
 		focus(SchArtId2);
 		.print("scheme secondBestZoneSch created");
-		addScheme(secondBestZoneSch)[artifact_name("zone2GroupBoard")]; 
+		addScheme(secondBestZoneSch)[artifact_name("zone2GroupBoard")];
 		//.print("scheme is linked to responsible group");
-		makeArtifact(attackSch,"ora4mas.nopl.SchemeBoard",["lti-usp-os.xml", attack_sch, false, false ],SchArtId3);
+		makeArtifact(attackSch,"ora4mas.nopl.SchemeBoard",["alm-os.xml", attack_sch, false, false ],SchArtId3);
 		focus(SchArtId3);
 		.print("scheme attackSch created");
 		addScheme(attackSch)[artifact_name("attackGroupBoard")];
-		
+
 		.broadcast(tell,environment(ok));
 		//.print("scheme is linked to responsible group").
 		!!coordinate_goal.
-			
+
 -!run_scheme[error(I),error_msg(M)]
 	<- 	.print("failure creating scheme -- ",I,": ",M).
 
@@ -219,7 +219,7 @@
 	<-	.print("[ERROR] Failure in send_best_zones! ",I,": ",M).
 
 
-	
+
 // available roles in the beginning of the match
 // the coordinator is responsible to distribute these roles among the other agents
 +!add_available_roles
