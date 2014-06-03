@@ -10,7 +10,7 @@ cd massim-2013-1.4/massim/scripts
 Escolha a opção de torneio:
 
 1: conf//2013-testmatch1.xml é a opção para rodar o time da USP contra o time da UFSC
-0: conf//2013-sma-tests.xml é a opção para rodar o nosso time contra o time da USP
+0: conf//2013-sma-tests.xml é a opção para rodar o nosso time (ALM) contra o time da USP
 
 ### Inicie o monitor
 
@@ -22,6 +22,13 @@ cd massim-2013-1.4/massim/scripts
 ### Inicie os times
 
 Exitem três times neste projeto: LTI-USP, UFSC e o nosso PCS-ALM.
+
+Iniciar o PCS-ALM:
+
+```
+cd PCS-ALM
+java -jar alm-sma.jar
+```
 
 Iniciar o LTI-USP:
 
