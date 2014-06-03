@@ -1,6 +1,6 @@
 /*
   LTI-USP Team - Project for the  Multi-Agent Programming Contest 2013.
-  
+
   Authors: Mariana Ramos Franco
 */
 MAS lti_usp_2013 {
@@ -8,7 +8,7 @@ MAS lti_usp_2013 {
 	//infrastructure: JaCaMo
 	infrastructure: Centralised
 
-   	environment: env.MarsEnv("infrastructure","protocol(rmi)","service(rmi,'localhost:21000')","teamName(LTI-USP)","usernamePrefix(LTI-USP)")	// the environment is cartago
+   	environment: env.MarsEnv("infrastructure","protocol(rmi)","service(rmi,'localhost:10111')","teamName(LTI-USP)","usernamePrefix(LTI-USP)")	// the environment is cartago
 
    	agents:
    		coordinator
