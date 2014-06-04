@@ -77,16 +77,16 @@
 			<subgroups>
 				<group-specification id="attack_group" min="1" max="1">
 					<roles>
-		                <role id="saboteur" min="0" max="4" />
-            			<!--role id="sentinel" min="0" max="1" /-->
+		                <role id="saboteur" min="0" max="1" />
+            			<role id="sentinel" min="0" max="1" />
             			<role id="inspector" min="0" max="1" />
-            			<role id="repairer" min="0" max="2" />
+            			<role id="repairer" min="0" max="1" />
 		            </roles>
 				</group-specification>
 				<group-specification id="best_zone_group" min="1" max="1">
 					<roles>
-		                <role id="soldier" min="0" max="10" /> <!-- 2e 1sa 2r 3se 3i-->
-        		    	<!--role id="guardian" min="0" max="1" /-->
+		                <role id="soldier" min="0" max="11" /> <!-- 2e 1sa 2r 3se 3i-->
+        		    	<role id="guardian" min="0" max="1" />
 		            	<role id="medic" min="0" max="1" />
             			<role id="zone_explorer" min="0" max="1" />
 		            </roles>
@@ -94,7 +94,7 @@
 				<group-specification id="second_best_zone_group" min="1" max="1">
 					<roles>
 		                <role id="soldier" min="0" max="7" /> <!-- 1e 0sa 1r 2se 2(3)i-->
-        		    	<!--role id="guardian" min="0" max="1" /-->
+        		    	<role id="guardian" min="0" max="1" />
 		            	<role id="medic" min="0" max="1" />
             			<role id="zone_explorer" min="0" max="1" />
 		            </roles>
