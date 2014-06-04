@@ -19,76 +19,38 @@ Este relatório descreve a implementação de um time usando a abordagem de sist
 
 \section{Introdução}
 
-\textcolor{red}{TODO}
-\begin{enumerate}
-\item What was the motivation to participate in the contest?
+O “Multi-Agent Programming Contest" (MAPC) é uma competição realizada todos os anos, onde são propostos problemas de domínios variados para a resolução utilizando sistemas Multi-agentes. Seu principal objetivo é o fomento a pesquisa nessa área de estudo. No MAPC, dois times de agentes competem diretamente no mesmo ambiente, oferecendo assim uma oportunidade para a comparação de estratégias e arquiteturas. Desde 2011 o cenário proposto, Agents on Mars, incentiva soluções baseadas em cooperação e coordenação. O objetivo geral do cenário é o controle de zonas em um mapa, representado por um grafo, por se posicionar os agentes em posições, vértices apropriados. A história de fundo do cenário gira em torno da exploração de marte por áreas com concentração de água.
 
-O MAPC tem como um de seus principais objetivos estimular a pesquisa na área de sistemas multi-agentes. O objetivo deste trabalho é então propor uma estratégia e gerar um time de agentes que participe da competição se utilizando dela.
-\item What is the (brief) history of the team? (MAS course project,
-  thesis evaluation, $\ldots$)
+O presente artigo apresenta a estratégia para o time ALM, desenvolvido com base no modelo do time participante da competição de 2013 do Laboratório de Técnicas Inteligentes (LTI) da USP. O time ALM foi desenvolvido como parte da avaliação da disciplina de Sistemas Multi-Agentes pelos alunos Alan Fachini, Lucas Nascimento dos Santos da Silva e Márcio Fernando Stabile Júnior. 
 
-O time foi então criado não só para o fim de pesquisa, como também para participar do campeonato interno da disciplina de Sistemas Multi-Agentes (PCS 5703) da Universidade de São Paulo de forma a cumprir parte dos requisitos necessários para obtenção dos créditos da disciplina.
+\section{System Analysis and Design }
 
-\item What is the name of your team?
-\item How many developers and designers did you have? At what level of education are your team members?
+O time ALM foi desenvolvido com base no time LTI-USP participante das competições de 2012 e 2013. O time ALM, assim como o time em que é baseado, utiliza a framework de desenvolvimento para sistemas multi-agentes JaCaMo. JaCaMo é uma plataforma para a programação de sistemas multi-agentes que suporta vários níveis de abstração (agentes, ambiente, organização). JaCaMo combina três tecnologias para isso: Jason , para programar agentes autônomos; CArtAgO, para programar artefatos do ambiente e Moise, para programar organizações de multi-agentes.
 
-O time tem como nome PCS-ALM e é composto de três integrantes:
-\begin{itemize}
-\item Alan Rafael Fachini - Cursando Mestrado em Engenharia da Computação (PCS-EPUSP)
-\item Lucas Nascimento - Cursando Mestrado em Engenharia da Computação (PCS-EPUSP)
-\item Márcio F. Stabile Jr. - Cursando Mestrado em Ciência da Computação (IME-USP)
-\end{itemize}
+Nenhuma metodologia especifica para o desenvolvimento de sistemas multi-agentes foi utilizada, visto nenhum dos membros possuírem experiência para a mesma e dado o tempo necessário para a conclusão do trabalho.
 
-\item From which field of research do you come from? Which work is related?
+Baseado no time LTI-USP da versão da competição de 2013, nosso time apresenta uma proposta não centralizada. Apesar de apresentar um agente coordenador, cada agente possui autonomia para decidir quais vértices irá ocupar para criar ou expandir uma zona. Cada agente possui seu modelo interno do ambiente e se comunica com outros agentes para informar a estrutura do mapa, posições dos oponentes ou solicitar reparos. De acordo com as regras da competição de 2013 o time é composto de 28 agentes.
 
-Os integrantes tem ligação com pesquisas na área de Inteligência Artificial
-\end{enumerate}
+A arquitetura dos agentes é baseada no modelo BDI, com cada agente possuindo sua base de crenças, desejos e intenções. Cada agente tem autonomia para decidir sua próxima ação em cooperação com os demais.
 
-\section{Projeto e Análise do Sistema}
+Os agentes se comunicam em forma de broadcast enviando, uns para os outros, mensagens somente em relação às novas percepções recebidas, assim os agentes só enviam mensagens nos casos em que a percepção altera o modelo interno do ambiente do agente. A sobrecarga causada por esse tipo de comunicação no começo da simulação, quando as percepções recebidas pelos agentes são novas, diminui com o progresso da simulação conforme os agentes completam um modelo do ambiente.
 
-\begin{enumerate}
- \item Did you use multi-agent programming languages? Please justify your answer.
- 
- Para o desenvolvimento dos agentes foi utilizada a linguagem Jason, implementação do AgentSpeak que está contida no arcabouço JaCaMo que permite criar a implementação do agente e também o esquema organizacional.
- 
- \item If some multi-agent system methodology such as Prometheus,
-   O-MaSE, or Tropos was used, how did you use it? If you did not, please justify.
-   
-Não foram utilizadas metodologias de desenvolvimento primeiramente pelo fato dos agentes terem sido desenvolvidos com base em agentes já existentes e também pelo baixo limite de tempo que não permitiu aos membros estudar a fundo metodologias para o desenvolvimento.
-   
- \item Is the solution based on the centralisation of
-   coordination/information on a specific agent? Conversely if you
-   plan a decentralised solution, which strategy do you plan to use?
- \item What is the communication strategy and how complex is it?
- \item How are the following agent features considered/implemented:
-   \emph{autonomy}, \emph{proactiveness}, \emph{reactiveness}?
- \item Is the team a truly \textbf{multi}-agent system or rather a
-   centralised system in disguise?
-\item How much time (man hours) have you invested (approximately) for implementing your team?
-\item Did you discuss the design and strategies of you agent team with other developers? To which extend did your test your agents playing with other teams.
-\item What data structures are shared among the agents, and which are private of each agent?
-\end{enumerate}
+O ALM é um sistema multi-agente real no sentido que seus agentes são autônomos, proativos e reativos. São autônomos no sentido de decidir por si próprios qual a próxima ação a ser realizada, ainda que em coordenação com outros agentes e com o agente coordenador. Eles apresentam comportamento proativo quando selecionam o melhor vértice no mapa para se movimentarem. E apresentam comportamento reativo quando, por exemplo, o agente realiza uma recarga ao ficar com baixa energia. 
 
 \section{Software Architecture}
 
-\begin{enumerate}
-\item Which programming language did you use to implement the
-  multi-agent system?
-\item How have you mapped the designed architecture (both multi-agent
-  and individual agent architectures) to programming codes, i.e., how
-  did you implement specific agent-oriented concepts and designed
-  artifacts using the programming language?
-\item Which development platforms and tools are used? How much time did you invest in learning those?
-\item Which runtime platforms and tools (e.g. Jade, AgentScape, simply Java, $\ldots$) are used? How much time did you invest in learning those?
- \item What features were missing in your language choice that would have facilitated your development task?
-\item Which algorithms are used/implemented?
-\item How did you distribute the agents on several machines? And if you did not
-please justify why.
-\item Do your agents perform any reasoning tasks while waiting for responses from the server, or is the reasoning synchronized with the receive-percepts/send-action cycle?
-\item What part of the development was most difficult/complex? What
-  kind of problems have you found and how are they solved?
-\item How many lines of code did you write for your software?
-\end{enumerate}
+A arquitetura do time ALM é a mesma utilizada pelo time LTI-USP na competição de 2013, exibida na Figura 1. Nessa arquitetura foi utilizada a linguagem de programação Jason que provê conceitos de BDI, disponibilizando conceitos abstratos tais como planos, crenças e objetivos. Jason é baseado na plataforma Java e implementa uma extensão da linguagem de programação para agentes AgentSpeak. Os planos que compõem os agentes são definidos em AgentSpeak, e o agente decide qual plano utilizar de acordo com usas crenças e representação interna do mundo.
+
+O modelo interno do mundo utilizado pelos agentes foi criado em Java usando estruturas de dados e classes, que representam todos os aspectos recebidos do simulador. A cada interação da simulação os agentes atualizam seu modelo interno do mundo de acordo com as percepções recebidas do servidor. 
+
+\color{red} TODO Imagem
+\color{black}
+
+A framework CArtAgO foi utilizada para usar os artefatos organizacionais disponíveis em Moise. Em CArtAgO o ambiente pode ser desenhado como um conjunto dinâmico de entidade computacionais, chamadas de artefatos.
+
+Moise é um modelo organizacional para sistemas multi-agentes baseado em três dimensões: estrutural funcional e normativa.
+
+Os agentes se comunicam com o servidor MASSim por meio da interface EISMASSim, baseada em EIS, e distribuída para a competição. 
 
 \section{Strategies, Details and Statistics}\label{sec:strategies}
 
