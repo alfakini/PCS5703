@@ -235,13 +235,13 @@
 		+availableRole(8,repairer,medic,m_occupy_center,"bestZoneSch","zone1GroupBoard");
 		+availableRole(9,repairer,medic,m_occupy_center,"secondBestZoneSch","zone2GroupBoard");
 		+availableRole(10,repairer,soldier,m_create_zone,"bestZoneSch","zone1GroupBoard");
-		+availableRole(11,repairer,soldier,m_create_zone,"bestZoneSch","zone1GroupBoard");
+		+availableRole(11,repairer,repairer,m_repair,"attackSch","attackGroupBoard");
 		+availableRole(12,repairer,soldier,m_create_zone,"secondBestZoneSch","zone2GroupBoard");
 
 		+availableRole(13,saboteur,saboteur,m_attack,"attackSch","attackGroupBoard");
-		+availableRole(14,saboteur,guardian,m_defend_zone,"bestZoneSch","zone1GroupBoard");
-		+availableRole(15,saboteur,guardian,m_defend_zone,"secondBestZoneSch","zone2GroupBoard");
-		+availableRole(16,saboteur,soldier,m_create_zone,"bestZoneSch","zone1GroupBoard");
+		+availableRole(14,saboteur,saboteur,m_attack,"attackSch","attackGroupBoard");
+		+availableRole(15,saboteur,saboteur,m_attack,"attackSch","attackGroupBoard");
+		+availableRole(16,saboteur,saboteur,m_attack,"attackSch","attackGroupBoard");
 
 		+availableRole(17,sentinel,sentinel,m_sabotage,"attackSch","attackGroupBoard");
 		+availableRole(18,sentinel,soldier,m_create_zone,"bestZoneSch","zone1GroupBoard");
