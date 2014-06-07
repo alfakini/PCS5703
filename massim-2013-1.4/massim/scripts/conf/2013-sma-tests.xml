@@ -4,8 +4,16 @@
 <conf>
 	&sim-server;
 	<match>
-		&simulation1;
-		&simulation2;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
+		&simulation-sma3;
 	</match>
 
 	<accounts>

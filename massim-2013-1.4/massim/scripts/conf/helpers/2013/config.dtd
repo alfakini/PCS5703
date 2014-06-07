@@ -12,6 +12,9 @@
 <!ENTITY teamAiWXX SYSTEM "accounts-AiWXX.xml">
 
 
+<!ENTITY simulation-sma SYSTEM "sim-sma.xml">
+<!ENTITY simulation-sma2 SYSTEM "sim-sma2.xml">
+<!ENTITY simulation-sma3 SYSTEM "sim-sma3.xml">
 <!ENTITY simulation1 SYSTEM "sim1.xml">
 <!ENTITY simulation2 SYSTEM "sim2.xml">
 <!ENTITY simulation3 SYSTEM "sim3.xml">
