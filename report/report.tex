@@ -5,6 +5,9 @@
 \usepackage{graphics}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \begin{document}
 \title{Exercício Prático 2: MAPC Agents on Mars}
@@ -45,25 +48,25 @@ A arquitetura do time ALM é a mesma utilizada pelo time LTI-USP na competição
 O modelo interno do mundo utilizado pelos agentes foi criado em Java usando estruturas de dados e classes, que representam todos os aspectos recebidos do simulador. A cada interação da simulação os agentes atualizam seu modelo interno do mundo de acordo com as percepções recebidas do servidor.
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=0.7\linewidth]{./Img/fig1.png}
+\includegraphics[width=0.7\linewidth]{./images/fig1.png}
 \caption{Arquitetura dos times LTI-USP e ALM.}
 \label{fig:fig1}
 \end{figure}
 
 
-A framework CArtAgO foi utilizada para usar os artefatos organizacionais disponíveis em Moise. CArtAgO é uma framework para programação de ambientes baseada em Agentes \& Artifacts (A\&A) para desenhar e modelar sistemas multi-agentes. A framework inclui várias metáforas baseadas em ambientes cooperativos de sociedades humanas, tais como: agentes como entidades computacionais que executam uma tarefa (análogo a trabalhadores humanos); e artefatos, como recursos e ferramentas dinamicamente construídos para o uso e manipulação dos agentes na execução de suas tarefas. Cada artefato pode ser usado e manipulado pelos agentes em tempo de execução. Nesse trabalho não foram desenhados novos artefatos para o uso dos agentes, tal qual o trabalho no qual o presente projeto é baseado os únicos artefatos existentes são os relacionados ao modelo organizacional feito em Moise. 
+A framework CArtAgO foi utilizada para usar os artefatos organizacionais disponíveis em Moise. CArtAgO é uma framework para programação de ambientes baseada em Agentes \& Artifacts (A\&A) para desenhar e modelar sistemas multi-agentes. A framework inclui várias metáforas baseadas em ambientes cooperativos de sociedades humanas, tais como: agentes como entidades computacionais que executam uma tarefa (análogo a trabalhadores humanos); e artefatos, como recursos e ferramentas dinamicamente construídos para o uso e manipulação dos agentes na execução de suas tarefas. Cada artefato pode ser usado e manipulado pelos agentes em tempo de execução. Nesse trabalho não foram desenhados novos artefatos para o uso dos agentes, tal qual o trabalho no qual o presente projeto é baseado os únicos artefatos existentes são os relacionados ao modelo organizacional feito em Moise.
 
-Moise é um modelo organizacional para sistemas multi-agentes baseado em três dimensões: estrutural, funcional e normativa. 
-A dimensão estrutural é construída sob três níveis. O nível individual responde pelo comportamento que um agente adota ao assumir determinado papel. O nível social diz respeito a relação entre papeis e comunicação. E o nível coletivo responde pela agregação de papéis em grupos. 
+Moise é um modelo organizacional para sistemas multi-agentes baseado em três dimensões: estrutural, funcional e normativa.
+A dimensão estrutural é construída sob três níveis. O nível individual responde pelo comportamento que um agente adota ao assumir determinado papel. O nível social diz respeito a relação entre papeis e comunicação. E o nível coletivo responde pela agregação de papéis em grupos.
 A dimensão funcional é formada por planos, metas e missões que representam a forma pela qual o sistema multi-agentes alcança o seu objetivo global. O objetivo global é decomposto em planos, que são distribuídos aos agentes na forma de missões, quando um agente recebe uma missão ele se responsabiliza por todas as metas que compõem a missão.
 E a dimensão normativa, ou deôntica, abrange a autonomia dos agentes, especificando o que é ou não permitido dentro da organização. A especificação dessa dimensão diz respeito as permissões e obrigações relacionadas a um papel.
-O modelo em Moise permite ao desenvolvedor delimitar as restrições da sociedade de agentes, e também pode ser usada para que os agentes raciocinem em relação a sua organização. 
+O modelo em Moise permite ao desenvolvedor delimitar as restrições da sociedade de agentes, e também pode ser usada para que os agentes raciocinem em relação a sua organização.
 Os agentes se comunicam com o servidor MASSim por meio da interface EISMASSim, baseada em EIS, e distribuída para a competição. Para realizar a comunicação com a interface do servidor para da competição a arquitetura padrão foi alterada para atuar não somente em artefatos do CArtAgO, como também no ambiente EIS.
 
 \section{Strategies, Details and Statistics}\label{sec:strategies}
-De acordo com a definição do cenário criada para o MAPC, são definidos cinco tipos diferentes de agentes, cada um com sua especialidade, são: explorador, reparador, sabotador, sentinela e inspetor. Cada classe de agente tem assim um conjunto de ações que lhe são permitidas realizarem, a tabela \ref{table:tab1} exibe qual o conjunto de ações para cada tipo de agente. 
+De acordo com a definição do cenário criada para o MAPC, são definidos cinco tipos diferentes de agentes, cada um com sua especialidade, são: explorador, reparador, sabotador, sentinela e inspetor. Cada classe de agente tem assim um conjunto de ações que lhe são permitidas realizarem, a tabela \ref{table:tab1} exibe qual o conjunto de ações para cada tipo de agente.
 
 \begin{table}[h]
 \centering
@@ -101,12 +104,64 @@ Usando como base o time LTI-USP, os papeis assumidos por nossos agentes não sã
 
 Em relação ao modelo de agentes utilizado pelo time LTI-USP, o time desenvolvido nesse trabalho muda um pouco a estrutura e os tipos utilizados. Diferente do time LTI-USP nossa abordagem não utiliza os agentes do tipo guardian, optando por uma estratégia mais agressiva. Passamos assim os agentes que estavam sendo usados como guardian para o tipo saboteur com a missão exclusiva de eliminar oponentes. Seguindo essa linha, devido ao maior número de agentes do tipo saboteur atacando preferimos transferir o agente do tipo medic responsável pelo reparo nas zonas ocupadas, para o tipo repairer no grupo de ataque, para prestar assistência aos nossos agentes saboteur. A Figura \ref{fig:fig2} mostra o modelo Moise após essas alterações.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=0.7\linewidth]{./Img/fig2.png}
+\includegraphics[width=0.7\linewidth]{./images/fig2.png}
 \caption{Modelo Moise dos tipos de agente utilizados pelo time ALM}
 \label{fig:fig2}
 \end{figure}
+
+\section{Experimentos}
+
+As partidas no ambiente MAPC acontecem em mapas gerados aleatoriamente dados parâmetros que definem o número de arestas e vértices. Cada time joga três vezes um contra o outro em partidas que duram 750 passos. Para os experimentos realizados neste trabalho escolheu-se reduzir o número de passos para 200, visto que nos experimentos realizados um dos times já havia vencido até esse passo.
+
+Os experimentos realizados colocaram o time ALM para competir contra o time LTI-USP que ficou em terceiro lugar na competição MAPC de 2013. Os times competiram em quatro ambientes diferentes definidos pelas propriedades apresentadas na Tabela \ref{table:ambientes}. Procurou-se definir ambientes similares aos testados pela equipe que desenvolveu o time LTI-USP. Testou-se ambientes com diferentes quantidades de vértices e aretas. A coluna semente define a semente utilizada para se gerar os mapas. Também é possível encontrar os arquivos de configuração utilizados no repositório de código deste trabalho \footnote{Repositório de Código: https://github.com/mfstabile/PCS5703}. A Figura \ref{fig:ambientes-testes} apresenta gráfica dos ambientes utilizados nos testes.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+             & Vértices & Arestas & N. Zonas &    Semente    \\ \hline
+  Ambiente 1 &   500    &   40\%  &          & 1402107246426 \\ \hline
+  Ambiente 2 &   500    &   40\%  &          & 1402129496795 \\ \hline
+  Ambiente 3 &   600    &   10\%  &          & 1402141987750 \\ \hline
+  Ambiente 4 &   400    &   20\%  &          & 1402235674563 \\ \hline
+\end{tabular}
+\caption{Conjunto de ações por agente.}
+\label{table:ambientes}
+\end{table}
+
+\begin{figure}[ht]
+      \centering
+      \begin{subfigure}[b]{0.48\textwidth}
+              \includegraphics[width=\textwidth]{images/sim1.png}
+              \caption{Ambiente 1}
+              \label{fig:ambiente1}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+              \includegraphics[width=\textwidth]{images/sim2.png}
+              \caption{Ambiente 2}
+              \label{fig:ambiente2}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+              \includegraphics[width=\textwidth]{images/sim3.png}
+              \caption{Ambiente 3}
+              \label{fig:ambiente3}
+      \end{subfigure}
+      ~
+      \begin{subfigure}[b]{0.48\textwidth}
+              \includegraphics[width=\textwidth]{images/sim4.png}
+              \caption{Ambiente 4}
+              \label{fig:ambiente4}
+      \end{subfigure}
+      \caption{Ambientes testados nos experimentos}
+      \label{fig:ambientes-testes}
+\end{figure}
+
+\section{Análise dos Resultados}
+
 
 
 \section{Conclusion}
