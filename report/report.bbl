@@ -1,5 +1,13 @@
 \begin{thebibliography}{1}
 
+\bibitem{jacamo-scp78}
+Olivier Boissier, Rafael~H. Bordini, Jomi H{\"u}bner, Alessandro Ricci, and
+  Andrea Santi.
+\newblock Multi-agent oriented programming with {JaCaMo}.
+\newblock {\em Science of Computer Programming}, 78(6):747--761, June 2013.
+\newblock Special section on Agent-oriented Design Methods and Programming
+  Techniques for Distributed Computing in Dynamic and Complex Environments.
+
 \bibitem{franco2013improving}
 Mariana~Ramos Franco and Jaime~Sim{\~a}o Sichman.
 \newblock Improving the lti-usp team: A new jacamo based mas for the mapc 2013.
