@@ -1,10 +1,10 @@
 <simulation
-        id="2013-tournament-sim3"
+        id="2013-tournament-sim2"
 		>
 			<configuration
-				randomSeed="1402141987750"
-				thinning="10"
-				numberOfNodes="600"
+				randomSeed="1402235674563"
+				thinning="20"
+				numberOfNodes="400"
 				randomWeight = "0"
 				gradientWeight = "0"
 				optimaWeight = "100"
