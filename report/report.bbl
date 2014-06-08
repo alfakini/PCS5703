@@ -8,10 +8,43 @@ Olivier Boissier, Rafael~H. Bordini, Jomi H{\"u}bner, Alessandro Ricci, and
 \newblock Special section on Agent-oriented Design Methods and Programming
   Techniques for Distributed Computing in Dynamic and Complex Environments.
 
+\bibitem{bordini2007jason}
+Rafael~H. Bordini, Jomi~Fred H\"{u}bner, and Michael Wooldridge.
+\newblock {\em Programming Multi-Agent Systems in AgentSpeak Using Jason (Wiley
+  Series in Agent Technology)}.
+\newblock John Wiley \& Sons, 2007.
+
+\bibitem{ltiusp2012}
+Mariana~Ramos Franco, Luciano~Menasce Rosset, and Jaime~Simão Sichman.
+\newblock Lti-usp team: A jacamo based mas for the mapc 2012.
+\newblock In Mehdi Dastani, JomiF. Hübner, and Brian Logan, editors, {\em
+  Programming Multi-Agent Systems}, volume 7837 of {\em Lecture Notes in
+  Computer Science}, pages 224--233. Springer Berlin Heidelberg, 2013.
+
 \bibitem{franco2013improving}
 Mariana~Ramos Franco and Jaime~Sim{\~a}o Sichman.
 \newblock Improving the lti-usp team: A new jacamo based mas for the mapc 2013.
 \newblock In {\em Engineering Multi-Agent Systems}, pages 339--348. Springer,
   2013.
+
+\bibitem{franco2013comparing}
+Mariana~Ramos Franco and Jaime~Sim{\~a}o Sichman.
+\newblock Comparing and evaluating organizational models: A multi-agent
+  programming contest case study.
+\newblock pages 339--348, 2014.
+
+\bibitem{hubner2010moise}
+JomiF. Hübner, Olivier Boissier, Rosine Kitio, and Alessandro Ricci.
+\newblock Instrumenting multi-agent organisations with organisational artifacts
+  and agents.
+\newblock {\em Autonomous Agents and Multi-Agent Systems}, 20(3):369--400,
+  2010.
+
+\bibitem{ricci2011cartago}
+Alessandro Ricci, Michele Piunti, and Mirko Viroli.
+\newblock Environment programming in multi-agent systems: an artifact-based
+  perspective.
+\newblock {\em Autonomous Agents and Multi-Agent Systems}, 23(2):158--192,
+  2011.
 
 \end{thebibliography}
