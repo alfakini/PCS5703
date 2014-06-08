@@ -18,91 +18,73 @@
 \maketitle
 
 \begin{abstract}
-Este relatório descreve a implementação de um time usando a abordagem de sistema multi-agente para a competição no senário ``Agents on Mars'' desenvolvida pelo ``Multi-Agent Programming Contest'' (MAPC) \footnote{\url{http://multiagentcontest.org/2013}}. Neste senários os agentes devem encontrar as melhores zonas com os maiores pesos nos nós do grafo. A implementação apresentada usou como base o sistema ``LTI-USP Team'' desenvolvida por Franco e Sichman \cite{franco2013improving} para a competição de 2013, e testes com estratégias diferentes para a organização dos times foram realizados a fim de tentar identificar estratégias mais eficientes.
+Este relatório descreve a implementação de um time usando a abordagem de sistema multi-agente para o cenário \textit{Agents on Mars} desenvolvida pelo ``Multi-Agent Programming Contest'' (MAPC) \footnote{\url{http://multiagentcontest.org/2013}}. Neste cenário os agentes devem encontrar as melhores zonas com os maiores pesos nos nós do grafo. A implementação apresentada usou como base o sistema do time LTI-USP desenvolvida por Franco e Sichman \cite{franco2013improving} para a competição de 2013, e testes com estratégias diferentes para a organização dos times foram realizados a fim de tentar identificar estratégias mais eficientes.
 \end{abstract}
 
 \section{Introdução}
 
-O “Multi-Agent Programming Contest" (MAPC) é uma competição realizada todos os anos, onde são propostos problemas de domínios variados para a resolução utilizando sistemas Multi-agentes. Seu principal objetivo é o fomento a pesquisa nessa área de estudo. No MAPC, dois times de agentes competem diretamente no mesmo ambiente, oferecendo assim uma oportunidade para a comparação de estratégias e arquiteturas. Desde 2011 o cenário proposto, Agents on Mars, incentiva soluções baseadas em cooperação e coordenação. O objetivo geral do cenário é o controle de zonas em um mapa, representado por um grafo, por se posicionar os agentes em posições, vértices apropriados. A história de fundo do cenário gira em torno da exploração de marte por áreas com concentração de água.
+O ``Multi-Agent Programming Contest'' (MAPC) \textcolor{red}{REFERENCIA} é uma competição realizada todos os anos, onde são propostos problemas de domínios variados para a resolução utilizando sistemas Multi-agentes. Seu principal objetivo é o fomento a pesquisa nessa área de estudo. No MAPC, dois times de agentes competem no mesmo ambiente, oferecendo assim uma oportunidade para a comparação de estratégias e arquiteturas. Desde 2011 o cenário proposto, \textit{Agents on Mars}, incentiva soluções baseadas em cooperação e coordenação. O objetivo geral do cenário é o controle de zonas em um mapa, representado por um grafo, por se posicionar os agentes em posições, vértices apropriados. A história de fundo do cenário gira em torno da exploração de marte por áreas com concentração de água.
 
-O presente artigo apresenta a estratégia para o time ALM, desenvolvido com base no modelo do time participante da competição de 2013 do Laboratório de Técnicas Inteligentes (LTI) da USP. O time ALM foi desenvolvido como parte da avaliação da disciplina de Sistemas Multi-Agentes pelos alunos Alan Fachini, Lucas Nascimento dos Santos da Silva e Márcio Fernando Stabile Júnior.
+O presente artigo apresenta a estratégia para o time ALM, desenvolvido com base no modelo do time LTI-USP. O time ALM foi desenvolvido como parte da avaliação da disciplina de Sistemas Multi-Agentes pelos alunos Alan Fachini, Lucas Nascimento dos Santos da Silva e Márcio Fernando Stabile Júnior.
 
-\section{System Analysis and Design }
+\section{Projeto do Sistema}
 
-O time ALM foi desenvolvido com base no time LTI-USP participante das competições de 2012 e 2013. O time ALM, assim como o time em que é baseado, utiliza a framework de desenvolvimento para sistemas multi-agentes JaCaMo \cite{jacamo-scp78}. JaCaMo é uma plataforma para a programação de sistemas multi-agentes que suporta vários níveis de abstração (agentes, ambiente, organização). JaCaMo combina três tecnologias para isso: Jason , para programar agentes autônomos; CArtAgO (Common ARTifact infrastructure for AGents Open environments), para programar artefatos do ambiente e Moise, para programar organizações de multi-agentes.
+O time ALM foi desenvolvido com base no time LTI-USP participante das competições de 2012 e 2013. O time ALM, assim como o time em que é baseado, utiliza o arcabouço de desenvolvimento para sistemas multi-agentes JaCaMo \cite{jacamo-scp78}. JaCaMo é uma plataforma para a programação de sistemas multi-agentes que suporta vários níveis de abstração (agentes, ambiente, organização). Para tal, o JaCaMo combina três tecnologias: Jason \textcolor{red}{REFERENCIA}, para programar agentes autônomos; CArtAgO (Common ARTifact infrastructure for AGents Open environments) \textcolor{red}{REFERENCIA}, para programar artefatos do ambiente e Moise \textcolor{red}{REFERENCIA}, para programar organizações de multi-agentes.
 
-Nenhuma metodologia especifica para o desenvolvimento de sistemas multi-agentes foi utilizada, visto nenhum dos membros possuírem experiência para a mesma e dado o tempo necessário para a conclusão do trabalho.
+Adotou-se como metodologia de desenvolvimento para este projeto uma prática iterativa, onde testes foram sendo realizados até se conseguir o melhor resultado nas simulações.
 
 Baseado no time LTI-USP da versão da competição de 2013, nosso time apresenta uma proposta não centralizada. Apesar de apresentar um agente coordenador, cada agente possui autonomia para decidir quais vértices irá ocupar para criar ou expandir uma zona. Cada agente possui seu modelo interno do ambiente e se comunica com outros agentes para informar a estrutura do mapa, posições dos oponentes ou solicitar reparos. De acordo com as regras da competição de 2013 o time é composto de 28 agentes.
 
 A arquitetura dos agentes é baseada no modelo BDI, com cada agente possuindo sua base de crenças, desejos e intenções. Cada agente tem autonomia para decidir sua próxima ação em cooperação com os demais.
 
-Os agentes se comunicam em forma de broadcast enviando, uns para os outros, mensagens somente em relação às novas percepções recebidas, assim os agentes só enviam mensagens nos casos em que a percepção altera o modelo interno do ambiente do agente. A sobrecarga causada por esse tipo de comunicação no começo da simulação, quando as percepções recebidas pelos agentes são novas, diminui com o progresso da simulação conforme os agentes completam um modelo do ambiente.
+Os agentes se comunicam em forma de \textit{broadcast} enviando, uns para os outros, mensagens somente em relação às suas novas percepções, assim os agentes só enviam mensagens nos casos em que a percepção altera o modelo interno do ambiente do agente. A sobrecarga causada por esse tipo de comunicação no começo da simulação, quando as percepções recebidas pelos agentes são novas, diminui com o progresso da simulação conforme os agentes completam um modelo do ambiente.
 
 O ALM é um sistema multi-agente real no sentido que seus agentes são autônomos, proativos e reativos. São autônomos no sentido de decidir por si próprios qual a próxima ação a ser realizada, ainda que em coordenação com outros agentes e com o agente coordenador. Eles apresentam comportamento proativo quando selecionam o melhor vértice no mapa para se movimentarem. E apresentam comportamento reativo quando, por exemplo, o agente realiza uma recarga ao ficar com baixa energia.
 
-\section{Software Architecture}
+\section{Arquitetura}
 
-A arquitetura do time ALM é a mesma utilizada pelo time LTI-USP na competição de 2013, exibida na Figura \ref{fig:fig1}. Nessa arquitetura foi utilizada a linguagem de programação Jason que provê conceitos de BDI, disponibilizando conceitos abstratos tais como planos, crenças e objetivos. Jason é baseado na plataforma Java e implementa uma extensão da linguagem de programação para agentes AgentSpeak. Jason provê speach acts que são utilizado no trabalho para a comunicação dos agentes. Uma vantagem da utilização da linguagem Jason é a possibilidade de invocar métodos escritos em Java o que permite maior versatilidade na implementação dos agentes e suas ações. Por exemplo, no presente trabalho, conforme descrito anteriormente, a representação interna dos agentes do mundo, ou ambiente, foi implementada em Java na forma de um grafo. Os planos que compõem os agentes são definidos em AgentSpeak, e o agente decide qual plano utilizar de acordo com suas crenças e representação interna do mundo.
-
-O modelo interno do mundo utilizado pelos agentes foi criado em Java usando estruturas de dados e classes, que representam todos os aspectos recebidos do simulador. A cada interação da simulação os agentes atualizam seu modelo interno do mundo de acordo com as percepções recebidas do servidor.
-
+A arquitetura do time ALM, exibida na Figura \ref{fig:arquitetura}, baseia-se na arquitetura do time LTI-USP. Nessa arquitetura a linguagem de programação Jason foi utilizada para a programação dos agentes. Ela provê uma abstração do modelo BDI, disponibilizando conceitos tais como planos, crenças e objetivos. Jason é baseado na plataforma Java e implementa uma extensão da linguagem de programação para agentes AgentSpeak. Jason provê atos de fala que são utilizado no trabalho para a comunicação dos agentes. Uma vantagem da utilização da linguagem Jason \textcolor{red}{REFERENCIA} é a possibilidade de invocar métodos escritos em Java o que permite maior versatilidade na implementação dos agentes e suas ações. No time LTI-USP a representação interna dos agentes do mundo, ou ambiente, foi implementada na forma de um grafo e o agente decide qual plano utilizar de acordo com suas crenças e representação interna do mundo. O modelo interno do mundo utilizado pelos agentes foi criado em Java usando estruturas de dados e classes, que representam todos os aspectos recebidos do simulador. A cada interação da simulação os agentes atualizam seu modelo interno do mundo de acordo com as percepções recebidas do servidor.
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.7\linewidth]{./images/fig1.png}
+\includegraphics[width=0.7\linewidth]{./images/arquitetura.png}
 \caption{Arquitetura dos times LTI-USP e ALM.}
-\label{fig:fig1}
+\label{fig:arquitetura}
 \end{figure}
 
+O arcabouço CArtAgO \textcolor{red}{REFERENCIA} foi utilizado para usar os artefatos organizacionais disponíveis em Moise. CArtAgO é um arcabouço para programação de ambientes baseada em Agentes \& Artifacts (A\&A) para desenhar e modelar sistemas multi-agentes. Ele inclui várias metáforas baseadas em ambientes cooperativos de sociedades humanas, tais como: agentes como entidades computacionais que executam uma tarefa (análogo a trabalhadores humanos); e artefatos, como recursos e ferramentas dinamicamente construídos para o uso e manipulação dos agentes na execução de suas tarefas. Cada artefato pode ser usado e manipulado pelos agentes em tempo de execução. Nesse trabalho não foram desenhados novos artefatos para o uso dos agentes, tal qual o trabalho no qual o presente projeto é baseado os únicos artefatos existentes são os relacionados ao modelo organizacional feito em Moise.
 
-A framework CArtAgO foi utilizada para usar os artefatos organizacionais disponíveis em Moise. CArtAgO é uma framework para programação de ambientes baseada em Agentes \& Artifacts (A\&A) para desenhar e modelar sistemas multi-agentes. A framework inclui várias metáforas baseadas em ambientes cooperativos de sociedades humanas, tais como: agentes como entidades computacionais que executam uma tarefa (análogo a trabalhadores humanos); e artefatos, como recursos e ferramentas dinamicamente construídos para o uso e manipulação dos agentes na execução de suas tarefas. Cada artefato pode ser usado e manipulado pelos agentes em tempo de execução. Nesse trabalho não foram desenhados novos artefatos para o uso dos agentes, tal qual o trabalho no qual o presente projeto é baseado os únicos artefatos existentes são os relacionados ao modelo organizacional feito em Moise.
+Moise \textcolor{red}{REFERENCIA} é um modelo organizacional para sistemas multi-agentes baseado em três dimensões: estrutural, funcional e normativa. A dimensão estrutural é construída sob três níveis. O nível individual responde pelo comportamento que um agente adota ao assumir determinado papel. O nível social diz respeito a relação entre papeis e comunicação. E o nível coletivo responde pela agregação de papéis em grupos. A dimensão funcional é formada por planos, metas e missões que representam a forma pela qual o sistema multi-agentes alcança o seu objetivo global. O objetivo global é decomposto em planos, que são distribuídos aos agentes na forma de missões, quando um agente recebe uma missão ele se responsabiliza por todas as metas que compõem a missão. E a dimensão normativa, ou deôntica, abrange a autonomia dos agentes, especificando o que é ou não permitido dentro da organização. A especificação dessa dimensão diz respeito as permissões e obrigações relacionadas a um papel. O modelo em Moise permite ao desenvolvedor delimitar as restrições da sociedade de agentes, e também pode ser usada para que os agentes raciocinem em relação a sua organização.
 
-Moise é um modelo organizacional para sistemas multi-agentes baseado em três dimensões: estrutural, funcional e normativa.
-A dimensão estrutural é construída sob três níveis. O nível individual responde pelo comportamento que um agente adota ao assumir determinado papel. O nível social diz respeito a relação entre papeis e comunicação. E o nível coletivo responde pela agregação de papéis em grupos.
-A dimensão funcional é formada por planos, metas e missões que representam a forma pela qual o sistema multi-agentes alcança o seu objetivo global. O objetivo global é decomposto em planos, que são distribuídos aos agentes na forma de missões, quando um agente recebe uma missão ele se responsabiliza por todas as metas que compõem a missão.
-E a dimensão normativa, ou deôntica, abrange a autonomia dos agentes, especificando o que é ou não permitido dentro da organização. A especificação dessa dimensão diz respeito as permissões e obrigações relacionadas a um papel.
-O modelo em Moise permite ao desenvolvedor delimitar as restrições da sociedade de agentes, e também pode ser usada para que os agentes raciocinem em relação a sua organização.
-Os agentes se comunicam com o servidor MASSim por meio da interface EISMASSim, baseada em EIS, e distribuída para a competição. Para realizar a comunicação com a interface do servidor para da competição a arquitetura padrão foi alterada para atuar não somente em artefatos do CArtAgO, como também no ambiente EIS.
+Os agentes se comunicam com o servidor MASSim por meio da interface EISMASSim, baseada em EIS, e distribuída pela organização da competição. Para realizar a comunicação com a interface do servidor com a competição a arquitetura padrão foi alterada pelo time LTI-USP para atuar não somente em artefatos do CArtAgO, como também no ambiente EIS.
 
-\section{Strategies, Details and Statistics}\label{sec:strategies}
-De acordo com a definição do cenário criada para o MAPC, são definidos cinco tipos diferentes de agentes, cada um com sua especialidade, são: explorador, reparador, sabotador, sentinela e inspetor. Cada classe de agente tem assim um conjunto de ações que lhe são permitidas realizarem, a tabela \ref{table:tab1} exibe qual o conjunto de ações para cada tipo de agente.
+\section{Estratégias}\label{sec:strategies}
+
+O cenário do MAPC define cinco tipos diferentes de agentes, cada um com sua especialidade: explorador, reparador, sabotador, sentinela e inspetor. Cada classe de agente tem um conjunto de ações que lhe são permitidas, a Tabela \ref{table:tab1} exibe qual o conjunto de ações permitida para cada tipo de agente.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
 	         & explorador & reparador & sabotador & sentinela & inspetor \\ \hline
-	recharge &      X      &     X      &     X      &    X       & X \\ \hline
-	 attack  &            &           &     X      &           &  \\ \hline
-	 parry   &            &     X      &    X       &    X       &  \\ \hline
-	  goto   &     X       &     X      &   X        &    X       & X  \\ \hline
-	 probe   &     X       &           &           &           &  \\ \hline
-	 survey  &      X      &     X      &    X       &    X       & X \\ \hline
-	inspect  &            &           &           &           &  X\\ \hline
-	  buy    &     X       &     X      &     X      &   X        & X \\ \hline
-	 repair  &            &      X     &           &           &  \\ \hline
-	  skip   &    X        &     X      &    X       &   X        & X \\ \hline
+	\textit{recharge} &      X      &     X      &     X      &    X       & X \\ \hline
+  \textit{attack}  &            &           &     X      &           &  \\ \hline
+  \textit{parry}   &            &     X      &    X       &    X       &  \\ \hline
+  \textit{goto}   &     X       &     X      &   X        &    X       & X  \\ \hline
+  \textit{probe}   &     X       &           &           &           &  \\ \hline
+  \textit{survey}  &      X      &     X      &    X       &    X       & X \\ \hline
+  \textit{inspect}  &            &           &           &           &  X\\ \hline
+  \textit{buy}    &     X       &     X      &     X      &   X        & X \\ \hline
+  \textit{repair}  &            &      X     &           &           &  \\ \hline
+  \textit{skip}   &    X        &     X      &    X       &   X        & X \\ \hline
 \end{tabular}
-\caption{Conjunto de ações por agente.}
+\caption{Conjunto de ações por agente definido pelo MAPC.}
 \label{table:tab1}
 \end{table}
 
-Usando como base o time LTI-USP, os papeis assumidos por nossos agentes não são diretamente mapeáveis para os times definidos para a competição. Assim tipos adicionais de agentes foram definidos de acordo com a estratégia usada. Cada papel tem uma missão associada que pode ser assumida por um ou mais tipos de agente. Segue a descrição dos tipos originalmente definidos para o time LTI-USP:
-\begin{itemize}
-  \item map\_explorer(explorador): Explora todo o mapa realizando a ação probe em todos os vértices e realizando a identificação de todas as arestas em seu caminho;
-  \item map\_explorer\_helper(explorador): Ajuda os agentes do tipo map\_explorer em sua tarefa durante os primeiros 250 passos, posteriormente assume o papel de soldier;
-  \item soldier(todos os tipos): Tenta ocupar a melhor área (ou segunda melhor) no ambiente indicada pelo agente coordenador;
-  \item guardian(sabotador): Defende a melhor (ou segunda melhor) área de invasores por ataca-los caso se aproximes da área do time ou tentem invadi-la;
-  \item medic (reparador): Ocupa o centro da área ocupada e é responsável por reparar os agentes no grupo. Os agentes que precisam de reparos se movem em direção aos agentes medic para serem reparados;
-  \item zone\_explorer(explorador): Explora a área ocupada pelo time identificando os vértices cujo valor seja desconhecido. Quando toda área é identifica o zone\_explorer auxilia os agentes soldier a expandir a área ocupada;
-  \item saboteur(sabotador): Ataca qualquer agente oponente próximo, ou que esteja ocupando um bom vértice;
-  \item sentinel(sentinela): Tenta sabotar o oponente se movendo para dentro da zona inimiga;
-  \item repairer(reparador): Segue os agentes do tipo saboteur para realizar reparos, sempre seguindo a duas células de distância para evirar perigo;
-  \item coordinator(nenhum): agente interno do sistema que possui um modelo interno do ambiente construído com base nas informações passadas pelos outros agentes. Esse agente determina quais as melhores áreas de ocupação e informa os agentes de sua posição.
-\end{itemize}
+Usando como base o time LTI-USP, os papeis assumidos por nossos agentes não são diretamente mapeáveis para os times definidos para a competição. Assim tipos adicionais de agentes foram definidos de acordo com a estratégia usada. Cada papel tem uma missão associada que pode ser assumida por um ou mais tipos de agente. O time LTI-USP define alguns tipos diferentes de agentes: \textit{map\_explorer} (explorador), \textit{map\_explorer\_helper} (explorador), \textit{soldier} (todos os tipos), \textit{guardian} (sabotador), \textit{medic} (reparador), \textit{zone\_explorer} (explorador), \textit{saboteur} (sabotador), \textit{sentinel} (sentinela), \textit{repairer} (reparador), \textit{coordinator} (nenhum). Uma descrição detalhada de cada tipo pode encontra-se em \textcolor{red}{CITAR LTI}.
 
-Em relação ao modelo de agentes utilizado pelo time LTI-USP, o time desenvolvido nesse trabalho muda um pouco a estrutura e os tipos utilizados. Diferente do time LTI-USP nossa abordagem não utiliza os agentes do tipo guardian, optando por uma estratégia mais agressiva. Passamos assim os agentes que estavam sendo usados como guardian para o tipo saboteur com a missão exclusiva de eliminar oponentes. Seguindo essa linha, devido ao maior número de agentes do tipo saboteur atacando preferimos transferir o agente do tipo medic responsável pelo reparo nas zonas ocupadas, para o tipo repairer no grupo de ataque, para prestar assistência aos nossos agentes saboteur. A Figura \ref{fig:fig2} mostra o modelo Moise após essas alterações.
+Em relação ao modelo de agentes utilizado pelo time LTI-USP, o time ALM muda um pouco a estrutura e os tipos utilizados. Nossa abordagem não utiliza os agentes do tipo \textit{guardian}, optando por uma estratégia mais agressiva de ataque possuindo mais agentes do tipo \textit{saboteur} com a missão exclusiva de eliminar oponentes. Seguindo essa linha, devido ao maior número de agentes do tipo \textit{saboteur} atacando preferimos transferir o agente do tipo \textit{medic} responsável pelo reparo nas zonas ocupadas, para o tipo \textit{repairer} no grupo de ataque, para prestar assistência aos agentes \textit{saboteur}. A Figura \ref{fig:fig2} mostra como ficou o modelo Moise após essas alterações.
 
 \begin{figure}[!ht]
 \centering
@@ -115,9 +97,9 @@ Em relação ao modelo de agentes utilizado pelo time LTI-USP, o time desenvolvi
 
 As partidas no ambiente MAPC acontecem em mapas gerados aleatoriamente dados parâmetros que definem o número de arestas e vértices. Cada time joga três vezes um contra o outro em partidas que duram 750 passos. Para os experimentos realizados neste trabalho escolheu-se reduzir o número de passos para 200, visto que nos experimentos realizados um dos times já havia vencido até esse passo.
 
-Os experimentos realizados colocaram o time ALM para competir contra o time LTI-USP que ficou em terceiro lugar na competição MAPC de 2013. Os times competiram em quatro ambientes diferentes definidos pelas propriedades apresentadas na Tabela \ref{table:ambientes}. Procurou-se definir ambientes similares aos testados pela equipe que desenvolveu o time LTI-USP. Testou-se ambientes com diferentes quantidades de vértices e aretas. A coluna semente define a semente utilizada para se gerar os mapas. Também é possível encontrar os arquivos de configuração utilizados no repositório de código deste trabalho \footnote{Repositório de Código: https://github.com/mfstabile/PCS5703}. A Figura \ref{fig:ambientes-testes} apresenta gráfica dos ambientes utilizados nos testes.
+Os experimentos realizados colocaram o time ALM para competir contra o time LTI-USP que ficou em terceiro lugar na competição MAPC de 2013. Os times competiram em quatro ambientes diferentes definidos pelas propriedades apresentadas na Tabela \ref{table:ambientes}. Testou-se ambientes com diferentes quantidades de vértices e aretas. A coluna semente define a semente utilizada para se gerar os mapas. Também é possível encontrar os arquivos de configuração utilizados no repositório de código deste trabalho \footnote{Repositório de Código: https://github.com/mfstabile/PCS5703}. A Figura \ref{fig:ambientes-testes} apresenta a representação gráfica dos ambientes utilizados nos testes.
 
-\begin{table}[ht]
+\begin{table}[!h]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
   \hline
@@ -131,7 +113,7 @@ Os experimentos realizados colocaram o time ALM para competir contra o time LTI-
 \label{table:ambientes}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
       \centering
       \begin{subfigure}[b]{0.48\textwidth}
               \includegraphics[width=\textwidth]{images/sim1.png}
@@ -162,7 +144,7 @@ Os experimentos realizados colocaram o time ALM para competir contra o time LTI-
 
 \section{Análise dos Resultados}
 
-Para cada ambiente apresentado foram realizados 10 simulações de jogos entre os times ALM-SMA e LTI-USP. A Figura \ref{fig:resultados} apresenta a pontuação final dos times nos jogos para os quatro ambientes.
+Para cada ambiente apresentado foram realizados 10 simulações de jogos entre os times ALM e LTI-USP. A Figura \ref{fig:resultados} apresenta a pontuação final dos times nos jogos para os quatro ambientes.
 
 \begin{figure}[!ht]
 \centering
@@ -173,9 +155,9 @@ Para cada ambiente apresentado foram realizados 10 simulações de jogos entre o
 
 \textcolor{red}{WILCOXON TEST}
 
-Como pode-se notar, a alteração realizada no time ALM-SMA garantiu a vitória do time nos quatro ambientes simulados. O time ALM-SMA não possue agentes guardiões para defender as áreas conquistadas. Estes agentes foram alterados para procurar e atacar os agentes do time adversário, ficando o time com 4 agentes sabotadores com o objetivo de atacar. O time também possue dois agentes para reparar os sabotadores.
+Como pode-se notar, a alteração realizada no time ALM garantiu a vitória do time nos quatro ambientes simulados. O time ALM não possue agentes guardiões para defender as áreas conquistadas. Estes agentes foram alterados para procurar e atacar os agentes do time adversário, ficando o time com 4 agentes sabotadores com o objetivo de atacar. O time também possue dois agentes para reparar os sabotadores.
 
-O time ALM-SMA obteve as menores pontuações no ambiente 2, seguido do ambiente 1. Podemos inferir que o fato destes ambientes possuírem zonas dispersas colaborou para a menor pontuação. O ambiente 2 possui ainda zonas muito pequenas, dificultando que os agentes consigam atingir pontuações maiores. No ambiente 2 também os agentes do time LTI-USP tiveram a disputa mais acirrada com os agentes do time ALM-SMA. Acreditamos que isto aconteceu pois a quantidade de zonas presentes no ambiente deixou os times afastados.
+O time ALM obteve as menores pontuações no ambiente 2, seguido do ambiente 1. Podemos inferir que o fato destes ambientes possuírem zonas dispersas colaborou para a menor pontuação. O ambiente 2 possui ainda zonas muito pequenas, dificultando que os agentes consigam atingir pontuações maiores. No ambiente 2 também os agentes do time LTI-USP tiveram a disputa mais acirrada com os agentes do time ALM. Acreditamos que isto aconteceu pois a quantidade de zonas presentes no ambiente deixou os times afastados.
 
 
 % \begin{figure}[ht]
@@ -217,27 +199,6 @@ O time ALM-SMA obteve as menores pontuações no ambiente 2, seguido do ambiente
 \item Which other research fields might be interested in the Multi-Agent Programming Contest?
 \item How can the current scenario be optimized? How would those optimization pay off?
 \end{enumerate}
-
-\newpage
-\section*{Short Answers}
-
-Please provide short answers to all the questions in a separate section. This
-does not count for the 10 pages limit. Please use the following style for this section:
-
-\begin{verbatim}
-\newpage
-\section*{Short Answers}
-\appendix
-\section{Introduction}
-\begin{enumerate}
-\item What was the motivation to participate in the contest?
-\item[A:] Our motiviation was ...
-\item What is the (brief) history of the team?
-(MAS course project, thesis evaluation, $\ldots$)
-\item[A:] In 2006...
-\end{enumerate}
-\end{verbatim}
-Please note: The \verb|A:| stands for "`Answer"'.
 
 \bibliography{references}{}
 \bibliographystyle{plain}
