@@ -12,3 +12,7 @@ massim-2013-1.4/massim/scripts/xmls/*.*
 *.log
 *.out
 *.synctex.gz
+.classpath
+.project
+.settings
+.settings
