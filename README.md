@@ -1,4 +1,4 @@
-# Agents on Mars
+# Agents on Mars (PCS5703)
 
 Este repositório contém código e ferramentas utilizadas para o desenvolvimento do trabalho prático de Sistemas Multi-Agentes para o curso PCS5703. Aqui encontram-se o código do time LTI-USP (terceiro lugar na competção Agents on Mars do MAPC) e ALM-SMA (uma adaptação na camada organizacional do time LTI-USP).
 
