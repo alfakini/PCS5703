@@ -1,0 +1,20 @@
+<simulation id="simulation-sma-4" >
+  <configuration
+    randomSeed="1402235674563"
+    thinning="20"
+    numberOfNodes="400"
+    randomWeight="0"
+    gradientWeight="0"
+    optimaWeight="100"
+    blurIterations="8"
+    optimaPercentage="5">
+
+  &actions;
+  &roles;
+  &achievements;
+
+  </configuration>
+
+  &agents;
+
+</simulation>

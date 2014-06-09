@@ -2,25 +2,54 @@
 <!DOCTYPE conf SYSTEM "helpers/2013/config.dtd">
 
 <conf>
-	&sim-server;
-	<match>
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-		&simulation-sma3;
-	</match>
+  &sim-server;
+  <match>
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-1;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-2;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-3;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+    &simulation-sma-4;
+  </match>
 
-	<accounts>
-		&actionclassmap;
-
-		&teamLTI-USP;
-		&teamALM;
-	</accounts>
+  <accounts>
+    &actionclassmap;
+    &teamLTI-USP;
+    &teamALM;
+  </accounts>
 </conf>
 

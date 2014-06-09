@@ -1,0 +1,20 @@
+<simulation id="simulation-sma-3">
+  <configuration
+    randomSeed="1402141987750"
+    thinning="10"
+    numberOfNodes="600"
+    randomWeight="0"
+    gradientWeight="0"
+    optimaWeight="100"
+    blurIterations="8"
+    optimaPercentage="5">
+
+  &actions;
+  &roles;
+  &achievements;
+
+  </configuration>
+
+  &agents;
+
+</simulation>
