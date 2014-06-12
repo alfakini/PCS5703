@@ -107,11 +107,11 @@ Os experimentos realizados colocaram o time ALM para competir contra o time LTI-
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
   \hline
-             & Vértices & Arestas & N. Zonas &    Semente    \\ \hline
-  Ambiente 1 &   500    &   40\%  &          & 1402107246426 \\ \hline
-  Ambiente 2 &   500    &   40\%  &          & 1402129496795 \\ \hline
-  Ambiente 3 &   600    &   10\%  &          & 1402141987750 \\ \hline
-  Ambiente 4 &   400    &   20\%  &          & 1402235674563 \\ \hline
+               & ~Vértices~ & ~Arestas~ &    Semente    \\ \hline
+  ~Ambiente 1~ &   500    &   40\%  & ~1402107246426~ \\ \hline
+  ~Ambiente 2~ &   500    &   40\%  & ~1402129496795~ \\ \hline
+  ~Ambiente 3~ &   600    &   10\%  & ~1402141987750~ \\ \hline
+  ~Ambiente 4~ &   400    &   20\%  & ~1402235674563~ \\ \hline
 \end{tabular}
 \caption{Conjunto de ações por agente.}
 \label{table:ambientes}
@@ -157,7 +157,19 @@ Para cada ambiente apresentado foram realizados 10 simulações de jogos entre o
 \label{fig:resultados}
 \end{figure}
 
-\textcolor{red}{WILCOXON TEST}
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+               & p-value \\ \hline
+    ~Ambiente 1~ & ~~0.00221772146424~ \\ \hline
+    ~Ambiente 2~ & 0.0230957326175 \\ \hline
+    ~Ambiente 3~ & ~~0.00221772146424~ \\ \hline
+    ~Ambiente 4~ & ~~0.00474176803841~ \\ \hline
+  \end{tabular}
+  \caption{Wilcoxon T-test para as simulações realizadadas nos quatro ambientes.}
+  \label{table:wilcoxon}
+\end{table}
 
 Como se pode notar, a alteração realizada no time ALM garantiu a vitória do time nos quatro ambientes simulados. O time ALM não possui agentes guardiões para defender as áreas conquistadas. Estes agentes foram alterados para procurar e atacar os agentes do time adversário, ficando o time com 4 agentes sabotadores com o objetivo de atacar. O time também possui dois agentes para reparar os sabotadores.
 
