@@ -18,14 +18,14 @@
 \maketitle
 
 \begin{abstract}
-Este relatório descreve a implementação de um time usando a abordagem de sistema multi-agente para o cenário \textit{Agents on Mars} desenvolvida pelo ``Multi-Agent Programming Contest'' (MAPC) \footnote{\url{http://multiagentcontest.org/2013}}. Neste cenário os agentes devem encontrar as melhores zonas com os maiores pesos nos nós do grafo. A implementação apresentada usou como base o sistema do time LTI-USP desenvolvida por Franco e Sichman \cite{franco2013improving} para a competição de 2013, e testes com estratégias diferentes para a organização dos times foram realizados a fim de tentar identificar estratégias mais eficientes.
+Este relatório descreve a implementação de um time usando a abordagem de sistema multi-agente para o cenário \textit{Agents on Mars} desenvolvida pelo ``Multi-Agent Programming Contest'' (MAPC) \footnote{MAPC page: \url{http://multiagentcontest.org/2013}}. Neste cenário os agentes devem encontrar as melhores zonas com os maiores pesos nos nós do grafo. A implementação apresentada usou como base o sistema do time LTI-USP desenvolvida por Franco e Sichman \cite{franco2013improving} para a competição de 2013, e testes com estratégias diferentes para a organização dos times foram realizados a fim de tentar identificar estratégias mais eficientes.
 \end{abstract}
 
 \section{Introdução}
 
 O MAPC é uma competição realizada todos os anos, onde são propostos problemas de domínios variados para a resolução utilizando sistemas Multi-agentes. Seu principal objetivo é o fomento a pesquisa nessa área de estudo. No MAPC, dois times de agentes competem no mesmo ambiente, oferecendo assim uma oportunidade para a comparação de estratégias e arquiteturas. Desde 2011 o cenário proposto, \textit{Agents on Mars}, incentiva soluções baseadas em cooperação e coordenação. O objetivo geral do cenário é o controle de zonas em um mapa, representado por um grafo, por se posicionar os agentes em posições, vértices apropriados. A história de fundo do cenário gira em torno da exploração de marte por áreas com concentração de água.
 
-O presente artigo apresenta a estratégia para o time ALM, desenvolvido com base no modelo do time LTI-USP \cite{franco2013comparing}\cite{franco2013improving}\cite{ltiusp2012}. O time ALM foi desenvolvido como parte da avaliação da disciplina de Sistemas Multi-Agentes pelos alunos Alan Fachini, Lucas Nascimento dos Santos da Silva e Márcio Fernando Stabile Júnior.
+O presente artigo apresenta a estratégia para o time ALM, desenvolvido com base no modelo do time LTI-USP \cite{franco2013comparing}\cite{franco2013improving}\cite{ltiusp2012}. O time ALM foi desenvolvido como parte da avaliação da disciplina de Sistemas Multi-Agentes pelos alunos Alan Fachini, Lucas Nascimento dos Santos da Silva e Márcio Fernando Stabile Júnior. Os experimentos realizados bem como dados estatísticos gerados podem ser acessados no repositório de código deste projeto \footnote{Repositório de Código: \url{https://github.com/mfstabile/PCS5703}}.
 
 \section{Projeto do Sistema}
 
@@ -101,7 +101,7 @@ Por fim, a estratégia do time pode ser resumida da seguinte forma: Existem trê
 
 As partidas no ambiente MAPC acontecem em mapas gerados aleatoriamente dados parâmetros que definem o número de arestas e vértices. Cada time joga três vezes um contra o outro em partidas que duram 750 passos. Para os experimentos realizados neste trabalho escolheu-se reduzir o número de passos para 200, visto que nos experimentos realizados um dos times já havia vencido até esse passo.
 
-Os experimentos realizados colocaram o time ALM para competir contra o time LTI-USP que ficou em terceiro lugar na competição MAPC de 2013. Os times competiram em quatro ambientes diferentes definidos pelas propriedades apresentadas na Tabela \ref{table:ambientes}. Foram testados também ambientes com diferentes quantidades de vértices e arestas. A coluna semente define a semente utilizada para se gerar os mapas. Também é possível encontrar os arquivos de configuração utilizados no repositório de código deste trabalho \footnote{Repositório de Código: https://github.com/mfstabile/PCS5703}. A Figura \ref{fig:ambientes-testes} apresenta a representação gráfica dos ambientes utilizados nos testes.
+Os experimentos realizados colocaram o time ALM para competir contra o time LTI-USP que ficou em terceiro lugar na competição MAPC de 2013. Os times competiram em quatro ambientes diferentes definidos pelas propriedades apresentadas na Tabela \ref{table:ambientes}. Foram testados também ambientes com diferentes quantidades de vértices e arestas. A coluna semente define a semente utilizada para se gerar os mapas. Também é possível encontrar os arquivos de configuração utilizados no repositório de código deste trabalho \footnote{Repositório de Código: \url{https://github.com/mfstabile/PCS5703}}. A Figura \ref{fig:ambientes-testes} apresenta a representação gráfica dos ambientes utilizados nos testes.
 
 \begin{table}[!h]
 \centering
@@ -148,8 +148,6 @@ Os experimentos realizados colocaram o time ALM para competir contra o time LTI-
 
 \section{Análise dos Resultados}
 
-Para cada ambiente apresentado foram realizados 10 simulações de jogos entre os times ALM e LTI-USP. A Figura \ref{fig:resultados} apresenta a pontuação final dos times nos jogos para os quatro ambientes.
-
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=1\linewidth]{./images/simulations-chart.png}
@@ -157,13 +155,23 @@ Para cada ambiente apresentado foram realizados 10 simulações de jogos entre o
 \label{fig:resultados}
 \end{figure}
 
-\begin{table}[!h]
+Para cada ambiente apresentado foram realizados 12 simulações de jogos entre os times ALM e LTI-USP. A Figura \ref{fig:resultados} apresenta a pontuação final dos times nos jogos para os quatro ambientes.
+
+Como se pode notar, a alteração realizada no time ALM fez com que o time obtivesse a maioria das vitórias nas simulações geradas. O time ALM não possui agentes guardiões para defender as áreas conquistadas. Estes agentes foram alterados para procurar e atacar os agentes do time adversário, ficando o time com 4 agentes sabotadores com o objetivo de atacar. O time também possui dois agentes para reparar os sabotadores. Esta alteração foi realizada no time para forçar os agentes a atacarem o time adversário. Podemos perceber durante a execução das simulações que em muitas vezes o time adversário começava com uma pontuação maior, porém após o time ALM realizar seus ataques o time adversário se tornou ineficiente, perdendo a partida.
+
+A maioria das derrotas do time ALM aconteceram no Ambiente 2. Inferimos que o fato desse ambiente possuir zonas dispersas colaborou para a menor pontuação. O time LTI-USP está preparado para encontrar, dominar e defender duas zonas no mapa, e mapas com zonas dispersas podem favorecer este time. Porém mesmo neste mapa, para 12 simulações geradas, o time ALM sofreu apenas 4 derrotas. Pode-se notar que nas partidas 2 e 10 o time LTI-USP poderia ter derrotado o time ALM. Este ambiente também é o com menor pontuação pois as zonas são pequenas, dificultando que os agentes consigam atingir pontuações maiores.
+
+Podemos perceber também que o Ambiente 4, com duas grandes zonas separadas, gerou a segunda menor pontuação média entre os 4 ambientes. Baseados nas simulações do Ambiente 2 e 4 acreditamos que o time ALM tenha mais dificuldade em lidar com ambientes com zonas dispersas, quanto maior a quantidade de zonas, pior o desempenho do time.
+
+Os Ambientes 1 e 3 mostram que em ambientes com uma grande zona o time ALM se destaca do time adversário com uma pontuação muito maior. Como os times disputam a mesma zona, o time ALM acaba atacando o adversário que perde desempenho durante a partida.
+
+\begin{table}
   \centering
   \begin{tabular}{|c|c|c|c|c|c|}
     \hline
                & p-value \\ \hline
     ~Ambiente 1~ & ~~0.00221772146424~ \\ \hline
-    ~Ambiente 2~ & 0.0230957326175 \\ \hline
+    ~Ambiente 2~ & \textit{0.0230957326175} \\ \hline
     ~Ambiente 3~ & ~~0.00221772146424~ \\ \hline
     ~Ambiente 4~ & ~~0.00474176803841~ \\ \hline
   \end{tabular}
@@ -171,50 +179,17 @@ Para cada ambiente apresentado foram realizados 10 simulações de jogos entre o
   \label{table:wilcoxon}
 \end{table}
 
-Como se pode notar, a alteração realizada no time ALM garantiu a vitória do time nos quatro ambientes simulados. O time ALM não possui agentes guardiões para defender as áreas conquistadas. Estes agentes foram alterados para procurar e atacar os agentes do time adversário, ficando o time com 4 agentes sabotadores com o objetivo de atacar. O time também possui dois agentes para reparar os sabotadores.
+A Tabela \ref{table:wilcoxon} apresenta o \textit{p-value} para o teste de Wilcoxon \footnote{\url{http://vassarstats.net/textbook/ch12a.html}} que nos ajuda a definir se a quantidade de simulações geradas são suficientes para determinar se um time é melhor que outro em determinado Ambiente. Um valor abaixo de 0.05 para o \textit{p-value} indica que os resultados obtidos nas 12 simulações são suficientes para caracterizar que um time tem tendência a obter pontuações maiores que o outro. Podemos notar que o \textit{p-value} para o Ambiente 2 nos indica que os resultados obtidos não são suficientes para se tirar uma conclusão definitiva sobre qual time tem uma tendência de vencer neste ambiente, corroborando nossa hipótese de que neste ambiente o time ALM desempenha pior do que nos outros.
 
-O time ALM obteve as menores pontuações no ambiente 2, seguido do ambiente 1. Podemos inferir que o fato destes ambientes possuírem zonas dispersas colaborou para a menor pontuação. O ambiente 2 possui ainda zonas muito pequenas, dificultando que os agentes consigam atingir pontuações maiores. No ambiente 2 também os agentes do time LTI-USP tiveram a disputa mais acirrada com os agentes do time ALM. Acreditamos que isto aconteceu pois a quantidade de zonas presentes no ambiente deixou os times afastados.
+\section{Conclusão}
 
+Neste trabalho realizamos modificações na estrutura organizacional e nas missões dos agentes do sistema LTI-USP para criar o time ALM. Para nosso time, adotamos a estratégia de colocar agentes para atacar e reparar e não utilizamos nenhum agente para defender as zonas conquistadas. Nos testes realizamos para 4 ambientes diferentes podemos verificar que esta estratégia faz com que o time ALM vença a maioria das partidas contra o time LTI-USP.
 
-% \begin{figure}[ht]
-%       \centering
-%       \begin{subfigure}[b]{0.48\textwidth}
-%               \includegraphics[width=\textwidth]{images/simulation1-chart.png}
-%               \caption{Resultado Simulação 1}
-%               \label{fig:resultado1}
-%       \end{subfigure}
-%       ~
-%       \begin{subfigure}[b]{0.48\textwidth}
-%               \includegraphics[width=\textwidth]{images/simulation2-chart.png}
-%               \caption{Resultado Simulação 2}
-%               \label{fig:resultado2}
-%       \end{subfigure}
-%       ~
-%       \begin{subfigure}[b]{0.48\textwidth}
-%               \includegraphics[width=\textwidth]{images/simulation3-chart.png}
-%               \caption{Resultado Simulação 3}
-%               \label{fig:resultado3}
-%       \end{subfigure}
-%       ~
-%       \begin{subfigure}[b]{0.48\textwidth}
-%               \includegraphics[width=\textwidth]{images/simulation4-chart.png}
-%               \caption{Resultado Simulação 4}
-%               \label{fig:resultado4}
-%       \end{subfigure}
-%       \caption{Resultado das simulações realizadas}
-%       \label{fig:ambientes-resultados}
-% \end{figure}
-\section{Conclusion}
-\begin{enumerate}
-\item What have you learned from the participation in the contest?
-\item Which are the strong and weak points of the team?
-\item How suitable was the chosen programming language, methodology,
-  tools, and algorithms?
-\item What can be improved in the context for next year?
-\item Why did your team perform as it did? Why did the other teams perform better/worse than you did.
-\item Which other research fields might be interested in the Multi-Agent Programming Contest?
-\item How can the current scenario be optimized? How would those optimization pay off?
-\end{enumerate}
+Determinar a melhor organização de um sistema multi-agente é um problema difícil. Foi necessário testar de forma empírica diversas estratégias e modificações incrementais no sistema para chegar em uma estratégia que fosse vitoriosa. O tempo de execução dos testes também gerou um desafio para resolver o problema. Acreditamos que os resultados aqui apresentados não são conclusivos. Testes contra os demais times vitoriosos da competição são necessários para verificar se a estratégia aqui adotada é suficiente para que os agentes ajam de forma eficiente para vencer as partidas. Também é necessário realizar mais testes realizando modificações no comportamento dos agentes. Acreditamos que usando agentes que possam modificar suas missões durante a partida pode gerar times mais fortes.
+
+Como trabalho futuro propomos a realização de mais testes contra outros times e em outros ambientes. Também é interessante investigar o uso de agentes capazes de modificar suas missões, ou um sistema onde o coordenador modifique as missões dos outros agentes para melhorar o desempenho dos agentes de acordo com modificações no ambiente.
+
+Por fim, este trabalho foi importante por mostrar como a área de Sistemas Multi-Agentes pode prover abordagens diferentes para problemas de Engenharia de \textit{Software}. O uso do conceito de organização e agentes tentando realizar missões pode ser utilizado em aplicações de \textit{software} que façam uso de inteligência para resolver problemas reais.
 
 \bibliography{references}{}
 \bibliographystyle{plain}
